@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
-  </head>
-  <body>
+.content-wrapper {
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  background-color: rgba(127, 255, 212, 0.193);
+}
+
+/* 
+ <body>
     <div class="content-wrapper">
       <h1>Weather App</h1>
       <div class="info-wrapper">
@@ -34,6 +32,5 @@
         </div>
       </div>
     </div>
-    <script defer src="./scripts/main.js"></script>
   </body>
-</html>
+  */
