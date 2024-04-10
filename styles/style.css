@@ -1,8 +1,74 @@
+html {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 1.3rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
 .content-wrapper {
   width: fit-content;
   margin: auto;
   text-align: center;
-  background-color: rgba(127, 255, 212, 0.193);
+  font-size: 0.8rem;
+}
+
+.info-wrapper {
+  padding: 0.7rem;
+  border: 1px dashed black;
+}
+
+.city-wrapper,
+.temperature-wrapper,
+.condition-wrapper,
+.other-info-wrapper {
+  width: 15rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.city-heading,
+.temperature-heading,
+.condition-heading,
+.other-info-heading {
+  padding: 0.2rem 0;
+  background-color: #ffc374;
+  font-weight: 600;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.city-body,
+.temperature-body,
+.condition-body {
+  display: flex;
+  justify-content: center;
+}
+
+.city-body,
+.temperature-body div,
+.condition-body {
+  flex-grow: 1;
+  padding: 0.55rem;
+  background-color: white;
+}
+
+.temperature-body div:first-of-type {
+  border-right: 1px solid rgb(0, 0, 0);
+}
+
+.temperature-body div:nth-child(2) {
+  border-right: 1px solid rgb(0, 0, 0);
+}
+
+.other-info-wrapper {
+  margin-bottom: 0;
+}
+
+.other-info-body img {
+  padding: 2rem;
 }
 
 /* 
