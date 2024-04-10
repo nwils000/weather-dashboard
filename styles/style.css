@@ -67,8 +67,12 @@ h1 {
   margin-bottom: 0;
 }
 
-.other-info-body img {
+.other-info-body {
   padding: 2rem;
+  height: 6.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 
