@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+// START MVP
+
 // GET LOCATION DATA
 let result = null;
 async function getLocationData() {
@@ -64,6 +66,8 @@ function convertKtoF(kelvin) {
 function convertKtoC(kelvin) {
   return `${(kelvin - 273.15).toFixed(2)}°C`;
 }
+
+// END MVP
 
 /* <body>
     <div class="content-wrapper">
