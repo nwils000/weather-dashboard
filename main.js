@@ -6,15 +6,15 @@ import axios from 'axios';
 let result = null;
 let longitude = null;
 let latitude = null;
-async function getCityLatAndLong() {
+async function getCityLatAndLong(zipCode) {
   try {
     const res = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${cityToPass()}&limit=5&appid=a807a687d13abc248b97f802908105d1`
+      `https://api.openweathermap.org/geo/1.0/zip?zip=${zipCode}&appid=a807a687d13abc248b97f802908105d1`
     );
     result = res.data;
     console.log(result);
-    latitude = result[0].lat;
-    longitude = result[1].lon;
+    latitude = result.lat;
+    longitude = result.lon;
     getLocationData();
   } catch (err) {
     console.log(err);
@@ -22,15 +22,13 @@ async function getCityLatAndLong() {
   }
 }
 
-function cityToPass(city) {
-  if (city) {
-    return city;
-  } else {
-    return 'Lexington';
-  }
-}
+document.querySelector('.info-1-submit').addEventListener('click', () => {
+  let zipCode = document.querySelector('.info-1').value;
 
-getCityLatAndLong();
+  getCityLatAndLong(zipCode);
+});
+
+getCityLatAndLong('40515');
 
 async function getLocationData() {
   try {
@@ -113,7 +111,7 @@ wireframeModeButton.addEventListener('click', () => {
 });
 
 function displayCustomInformation() {
-  document.querySelector('.info-1').setAttribute('placeholder', result.name);
+  document.querySelector('.city').textContent = result.name;
   document.querySelector('.info-2').textContent = result.main.humidity;
   document.querySelector('.info-3').textContent = result.wind.speed;
   document.querySelector('.info-4').textContent = result.wind.deg;
@@ -121,7 +119,83 @@ function displayCustomInformation() {
   document.querySelector('.weather-desc').textContent =
     result.weather[0].description;
   document.querySelector('.temp').textContent = convertKtoF(result.main.temp);
+  document.querySelector(
+    '.main-custom-content'
+  ).style.background = `url(../assets/${getWeatherImgSrc()})`;
+  document.querySelector('.main-custom-content').style.backgroundSize = 'cover';
+  document.querySelector(
+    '.custom-content-image'
+  ).style.background = `url(../assets/${getWeatherImgSrc()})`;
+  document.querySelector('.custom-content-image').style.backgroundSize =
+    'cover';
+  function getWeatherImgSrc() {
+    switch (result.weather[0].main) {
+      case 'Clouds':
+        return 'cloud.jpg';
+        break;
+      case 'Clear':
+        return 'sun.jpg';
+        break;
+      case 'Tornado':
+        return 'storm.jpg';
+        break;
+      case 'Squall':
+        return 'cloud.jpg';
+        break;
+      case 'Ash':
+        return 'cloud.jpg';
+        break;
+      case 'Dust':
+        return 'cloud.jpg';
+        break;
+      case 'Sand':
+        return 'cloud.jpg';
+        break;
+      case 'Fog':
+        return 'cloud.jpg';
+        break;
+      case 'Dust':
+        return 'cloud.jpg';
+        break;
+      case 'Haze':
+        return 'cloud.jpg';
+        break;
+      case 'Smoke':
+        return 'cloud.jpg';
+        break;
+      case 'Mist':
+        return 'cloud.jpg';
+        break;
+      case 'Snow':
+        return 'cloud.jpg';
+        break;
+      case 'Rain':
+        return 'rain.jpeg';
+        break;
+      case 'Drizzle':
+        return 'rain.jpeg';
+        break;
+      case 'Thunderstorm':
+        return 'storm.jpg';
+        break;
+    }
+  }
 }
+
+// .main-custom-content {
+//   width: 85vw;
+//   height: 80vh;
+//   margin: auto;
+//   border-radius: 4.5rem;
+//   box-shadow: 4px 4px 25px 0px rgba(0, 0, 0, 0.51);
+//   background: url(../assets/cloud.jpg);
+//   background-size: cover;
+//   opacity: 1;
+//   display: flex;
+//   position: relative;
+//   top: 10vh;
+//   color: white;
+// }
 
 /* <div class="custom-content">
       <div class="custom-content-image"></div>
