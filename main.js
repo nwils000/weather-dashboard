@@ -121,11 +121,11 @@ function displayCustomInformation() {
   document.querySelector('.temp').textContent = convertKtoF(result.main.temp);
   document.querySelector(
     '.main-custom-content'
-  ).style.background = `url(../assets/${getWeatherImgSrc()})`;
+  ).style.background = `url(../images/${getWeatherImgSrc()})`;
   document.querySelector('.main-custom-content').style.backgroundSize = 'cover';
   document.querySelector(
     '.custom-content-image'
-  ).style.background = `url(../assets/${getWeatherImgSrc()})`;
+  ).style.background = `url(../images/${getWeatherImgSrc()})`;
   document.querySelector('.custom-content-image').style.backgroundSize =
     'cover';
   function getWeatherImgSrc() {
@@ -188,7 +188,7 @@ function displayCustomInformation() {
 //   margin: auto;
 //   border-radius: 4.5rem;
 //   box-shadow: 4px 4px 25px 0px rgba(0, 0, 0, 0.51);
-//   background: url(../assets/cloud.jpg);
+//   background: url(../images/cloud.jpg);
 //   background-size: cover;
 //   opacity: 1;
 //   display: flex;
