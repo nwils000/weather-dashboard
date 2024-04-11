@@ -133,6 +133,7 @@ h1 {
   height: 80vh;
   margin: auto;
   border-radius: 4.5rem;
+  box-shadow: 4px 4px 25px 0px rgba(0, 0, 0, 0.51);
   background: url(../assets/cloud.jpg);
   background-size: cover;
   opacity: 1;
@@ -167,6 +168,7 @@ h1 {
 .info-1-wrapper {
   border-bottom: 1px solid rgba(0, 0, 0, 0.286);
   width: 80%;
+  position: relative;
 }
 
 .info-2-wrapper {
@@ -211,6 +213,26 @@ h1 {
   outline: none;
 }
 
+.info-1-submit {
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.686);
+  padding-right: 0;
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  right: 2px;
+}
+
+.info-1-submit:hover {
+  cursor: pointer;
+  color: white;
+}
+
 ::placeholder {
   color: rgba(255, 255, 255, 0.585);
 }
@@ -232,7 +254,7 @@ h1 {
   flex-direction: column;
   margin-top: 5rem;
   justify-content: center;
-  width: 20%;
+  width: 80%;
   margin-left: 5rem;
   gap: 1rem;
 }
@@ -262,7 +284,7 @@ h1 {
 }
 
 .weather-desc {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   position: relative;
   left: 2px;
 }

@@ -4,6 +4,34 @@ import axios from 'axios';
 
 // GET LOCATION DATA
 let result = null;
+let longitude = null;
+let latitude = null;
+async function getCityLatAndLong() {
+  try {
+    const res = await axios.get(
+      `http://api.openweathermap.org/geo/1.0/direct?q=${cityToPass()}&limit=5&appid=a807a687d13abc248b97f802908105d1`
+    );
+    result = res.data;
+    console.log(result);
+    latitude = result[0].lat;
+    longitude = result[1].lon;
+    getLocationData();
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+}
+
+function cityToPass(city) {
+  if (city) {
+    return city;
+  } else {
+    return 'Lexington';
+  }
+}
+
+getCityLatAndLong();
+
 async function getLocationData() {
   try {
     const res = await axios.get(
@@ -19,24 +47,21 @@ async function getLocationData() {
   }
 }
 
-let longitude = null;
-let latitude = null;
+// function getLocation() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(showPosition);
+//   } else {
+//     console.log('Geolocation is not supported by this browser.');
+//   }
+// }
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    console.log('Geolocation is not supported by this browser.');
-  }
-}
+// function showPosition(position) {
+//   longitude = position.coords.longitude;
+//   latitude = position.coords.latitude;
+//   getLocationData();
+// }
 
-function showPosition(position) {
-  longitude = position.coords.longitude;
-  latitude = position.coords.latitude;
-  getLocationData();
-}
-
-getLocation();
+// getLocation();
 
 // ADDING LOCATION DATA TO DOM
 function displayInformation() {
