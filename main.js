@@ -12,6 +12,7 @@ async function getLocationData() {
     result = res.data;
     console.log(result);
     displayInformation();
+    displayCustomInformation();
   } catch (err) {
     console.log(err);
     throw err;
@@ -86,31 +87,46 @@ wireframeModeButton.addEventListener('click', () => {
   document.querySelector('.custom-content').style.display = 'none';
 });
 
-/* <body>
-    <div class="content-wrapper">
-      <h1>Weather App</h1>
-      <div class="info-wrapper">
-        <div class="city-wrapper">
-          <div class="city-heading">City</div>
-          <div class="city-body"></div>
-        </div>
-        <div class="temperature-wrapper">
-          <div class="temperature-heading">Temperature</div>
-          <div class="temperature-body">
-            <div></div>
-            <div></div>
-            <div></div>
+function displayCustomInformation() {
+  document.querySelector('.info-1').setAttribute('placeholder', result.name);
+  document.querySelector('.info-2').textContent = result.main.humidity;
+  document.querySelector('.info-3').textContent = result.wind.speed;
+  document.querySelector('.info-4').textContent = result.wind.deg;
+  document.querySelector('.weather-type').textContent = result.weather[0].main;
+  document.querySelector('.weather-desc').textContent =
+    result.weather[0].description;
+}
+
+/* <div class="custom-content">
+      <div class="custom-content-image"></div>
+      <div class="custom-content-overlay"></div>
+      <div class="custom-content-wrapper">
+        <button class="wireframe-mode-button">Custom mode</button>
+        <div class="main-custom-content">
+          <div class="side-info">
+            <div class="info-1"></div>
+            <div class="info-2"></div>
+            <div class="info-3"></div>
+            <div class="info-4"></div>
+          </div>
+          <div class="main-info">
+            <div>
+              <div class="weather-type"></div>
+              <div class="weather-desc"></div>
+            </div>
+            <div class="temp"></div>
+            <div class="temp summary"></div>
+            <div class="weekly-temps">
+              <div>Weekly Temps</div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
         </div>
-        <div class="condition-wrapper">
-          <div class="condition-heading">Condition</div>
-          <div class="condition-body"></div>
-        </div>
-        <div class="other-info-wrapper">
-          <div class="other-info-heading">Other Info</div>
-          <div class="other-info-body"></div>
-        </div>
       </div>
-    </div>
-    <script defer src="./scripts/main.js"></script>
-  </body> */
+    </div> */

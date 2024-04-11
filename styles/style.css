@@ -103,7 +103,7 @@ h1 {
 
 /* CUSTOM APP STYLES */
 .custom-content-image {
-  background: url(../assets/cloud.jpg);
+  background: url(../assets/cloud-small.jpg);
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -139,20 +139,121 @@ h1 {
   display: flex;
   position: relative;
   top: 10vh;
+  color: white;
+}
+
+.main-info {
+  height: 100%;
+  background-color: rgba(67, 210, 150, 0.385);
+  flex-grow: 5;
+  border-radius: 0 4.5rem 4.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .side-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 3rem;
   height: 100%;
   background-color: rgba(67, 67, 210, 0.385);
   flex-grow: 1;
   border-radius: 4.5rem 0 0 4.5rem;
 }
 
-.main-info {
-  height: 100%;
-  background-color: rgba(67, 210, 150, 0.385);
-  flex-grow: 3;
-  border-radius: 0 4.5rem 4.5rem 0;
+.info-1-wrapper {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.286);
+  width: 80%;
+}
+
+.info-2-wrapper {
+  display: flex;
+  gap: 0.3rem;
+  align-items: top;
+  flex-grow: 1;
+  margin-top: 5rem;
+}
+
+.info-3-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  flex-grow: 1;
+}
+
+.info-3-wrapper i {
+  font-size: 2.8rem;
+}
+
+.filler-div {
+  flex-grow: 8;
+}
+
+.fa-droplet {
+  position: relative;
+  top: 10px;
+}
+
+.info-1 {
+  margin-top: 5rem;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.6rem 0.6rem 0.6rem 0.3rem;
+}
+
+.info-1:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.585);
+}
+
+.info-2 {
+  font-size: 4rem;
+}
+
+.info-3 {
+  font-size: 4rem;
+}
+
+.info-4 {
+  font-size: 4rem;
+}
+
+.weather-type-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  justify-content: center;
+  width: 20%;
+  margin-left: 5rem;
+  gap: 1.5rem;
+}
+
+.weekly-temps {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+  margin-left: 5rem;
+  gap: 3rem;
+}
+
+.weekly-temps-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 5rem;
+}
+
+.weekly-temps-flex div {
+  width: 2rem;
+  height: 2rem;
+  background-color: blue;
 }
 
 /* <div class="custom-content">
@@ -170,7 +271,7 @@ h1 {
           <div class="main-info">
             <div>
               <div class="weather-type"></div>
-              <div class="weather-disc"></div>
+              <div class="weather-desc"></div>
             </div>
             <div class="temp"></div>
             <div class="temp summary"></div>
