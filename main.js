@@ -95,6 +95,7 @@ function displayCustomInformation() {
   document.querySelector('.weather-type').textContent = result.weather[0].main;
   document.querySelector('.weather-desc').textContent =
     result.weather[0].description;
+  document.querySelector('.temp').textContent = convertKtoF(result.main.temp);
 }
 
 /* <div class="custom-content">
