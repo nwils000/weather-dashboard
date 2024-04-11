@@ -69,6 +69,23 @@ function convertKtoC(kelvin) {
 
 // END MVP
 
+let customModeButton = document.querySelector('.custom-mode-button');
+let wireframeModeButton = document.querySelector('.wireframe-mode-button');
+
+customModeButton.addEventListener('click', () => {
+  wireframeModeButton.textContent = 'Wireframe Mode';
+  customModeButton.textContent = '';
+  document.querySelector('.content-wrapper').style.display = 'none';
+  document.querySelector('.custom-content').style.display = 'block';
+});
+
+wireframeModeButton.addEventListener('click', () => {
+  customModeButton.textContent = 'Custom Mode';
+  wireframeModeButton.textContent = '';
+  document.querySelector('.content-wrapper').style.display = 'block';
+  document.querySelector('.custom-content').style.display = 'none';
+});
+
 /* <body>
     <div class="content-wrapper">
       <h1>Weather App</h1>
