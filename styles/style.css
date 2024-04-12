@@ -106,7 +106,7 @@ h1 {
   background-size: cover;
   width: 100vw;
   height: 100vh;
-  opacity: 0.4;
+  opacity: 0.3;
   z-index: 1;
   position: absolute;
   top: 0;
@@ -147,7 +147,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.104);
+  background-color: rgba(0, 0, 0, 0.086);
 }
 
 .side-info {
@@ -159,7 +159,7 @@ h1 {
   background-color: rgba(255, 255, 255, 0.179);
   flex-grow: 1;
   border-radius: 4.5rem 0 0 4.5rem;
-  border-right: 1px solid rgba(0, 0, 0, 0.437);
+  border-right: 1px solid rgba(0, 0, 0, 0.637);
 }
 
 .info-1-wrapper {
