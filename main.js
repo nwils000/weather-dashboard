@@ -141,11 +141,11 @@ function displayCustomInformation() {
   document.querySelector('.temp').textContent = convertKtoF(result.main.temp);
   document.querySelector(
     '.main-custom-content'
-  ).style.background = `url(../images/${getWeatherImgSrc()})`;
+  ).style.background = `url(../public/images/${getWeatherImgSrc()})`;
   document.querySelector('.main-custom-content').style.backgroundSize = 'cover';
   document.querySelector(
     '.custom-content-image'
-  ).style.background = `url(../images/${getWeatherImgSrc()})`;
+  ).style.background = `url(../public/images/${getWeatherImgSrc()})`;
   document.querySelector('.custom-content-image').style.backgroundSize =
     'cover';
   function getWeatherImgSrc() {

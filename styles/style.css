@@ -156,7 +156,7 @@ h1 {
   justify-content: space-between;
   padding: 0 3rem;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.179);
+  background-color: rgba(255, 255, 255, 0.089);
   flex-grow: 1;
   border-radius: 4.5rem 0 0 4.5rem;
   border-right: 1px solid rgba(0, 0, 0, 0.637);
@@ -174,6 +174,12 @@ h1 {
   align-items: top;
   flex-grow: 1;
   margin-top: 5rem;
+}
+
+.info-2-wrapper p,
+.info-3-wrapper p {
+  position: relative;
+  top: 0.6rem;
 }
 
 .info-3-wrapper {
