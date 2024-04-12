@@ -212,6 +212,14 @@ h1 {
   padding: 0.6rem 0.6rem 0.6rem 0.3rem;
 }
 
+.error-message1,
+.error-message2 {
+  font-size: 1.2rem;
+  color: rgba(255, 0, 0, 0.667);
+  display: none;
+  margin-bottom: 0;
+}
+
 .info-1:focus {
   outline: none;
 }

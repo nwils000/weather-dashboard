@@ -22,6 +22,9 @@ async function getCityLatAndLong(zipCode) {
     getLocationData();
   } catch (err) {
     console.log(err);
+    document.querySelector('.error-message2').style.display = 'block';
+    document.querySelector('.error-message2').textContent =
+      "That's not a real place...";
     throw err;
   }
 }
@@ -44,7 +47,10 @@ async function getLocationData() {
     displayInformation();
     displayCustomInformation();
   } catch (err) {
-    console.log(err);
+    console.log(`error ${err}`);
+    document.querySelector('.error-message2').style.display = 'block';
+    document.querySelector('.error-message2').textContent =
+      "That's not a real place...";
     throw err;
   }
 }
