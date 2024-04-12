@@ -136,8 +136,8 @@ function displayCustomInformation() {
     else if (degrees >= 303.75 && degrees < 326.25) return 'NW';
     else if (degrees >= 326.25 && degrees < 348.75) return 'NNW';
   }
-  var windDegrees = result.wind.deg;
-  var compassDirection = degreesToCompass(windDegrees);
+  let windDegrees = result.wind.deg;
+  let compassDirection = degreesToCompass(windDegrees);
   document.querySelector('.info-4').textContent = compassDirection;
   document.querySelector('.weather-type').textContent = result.weather[0].main;
   document.querySelector('.weather-desc').textContent =
