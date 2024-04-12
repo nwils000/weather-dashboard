@@ -1,4 +1,8 @@
 import axios from 'axios';
+import cloud from './images/cloud.jpg';
+import rain from './images/rain.jpeg';
+import storm from './images/storm.jpg';
+import sun from './images/sun.jpg';
 
 // START MVP
 
@@ -141,62 +145,62 @@ function displayCustomInformation() {
   document.querySelector('.temp').textContent = convertKtoF(result.main.temp);
   document.querySelector(
     '.main-custom-content'
-  ).style.background = `url(../public/images/${getWeatherImgSrc()})`;
+  ).style.background = `url(${getWeatherImgSrc()})`;
   document.querySelector('.main-custom-content').style.backgroundSize = 'cover';
   document.querySelector(
     '.custom-content-image'
-  ).style.background = `url(../public/images/${getWeatherImgSrc()})`;
+  ).style.background = `url(${getWeatherImgSrc()})`;
   document.querySelector('.custom-content-image').style.backgroundSize =
     'cover';
   function getWeatherImgSrc() {
     switch (result.weather[0].main) {
       case 'Clouds':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Clear':
-        return 'sun.jpg';
+        return sun;
         break;
       case 'Tornado':
-        return 'storm.jpg';
+        return storm;
         break;
       case 'Squall':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Ash':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Dust':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Sand':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Fog':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Dust':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Haze':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Smoke':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Mist':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Snow':
-        return 'cloud.jpg';
+        return cloud;
         break;
       case 'Rain':
-        return 'rain.jpeg';
+        return rain;
         break;
       case 'Drizzle':
-        return 'rain.jpeg';
+        return rain;
         break;
       case 'Thunderstorm':
-        return 'storm.jpg';
+        return storm;
         break;
     }
   }
