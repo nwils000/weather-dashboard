@@ -260,3 +260,17 @@ function displayCustomInformation() {
         </div>
       </div>
     </div> */
+
+let bodyAnchor = document.getElementById('body');
+elementCreator('main', bodyAnchor, '1');
+elementCreator('section', '1', '2');
+elementCreator('section', '1', '3');
+elementCreator('section', '1', '4');
+elementCreator('div', '3', 'myDiv');
+
+function elementCreator(child, parentId, id) {
+  let element = document.createElement(child);
+  element.setAttribute('id', id);
+  parentELement = document.getElementById(parentId);
+  parentElement.appendChild(element);
+}

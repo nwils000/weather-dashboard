@@ -315,6 +315,136 @@ h1 {
   font-size: 2rem;
 }
 
+@media only screen and (max-width: 1300px) {
+  .info-2-wrapper p,
+  .info-3-wrapper p {
+    top: 0;
+  }
+  .info-2-wrapper {
+    align-items: center;
+  }
+
+  .info-3-wrapper i {
+    font-size: 1.4rem;
+  }
+
+  .fa-droplet {
+    top: -5px;
+    font-size: 0.6rem;
+  }
+
+  .error-message1,
+  .error-message2 {
+    font-size: 0.8rem;
+  }
+
+  .info-2 {
+    font-size: 1.5rem;
+  }
+
+  .info-3 {
+    font-size: 1.5rem;
+  }
+
+  .info-4 {
+    font-size: 1.5rem;
+  }
+
+  .city {
+    font-size: 3rem;
+  }
+
+  .weather-type {
+    font-size: 1.8rem;
+  }
+
+  .weather-desc {
+    font-size: 1.5rem;
+    left: 0;
+  }
+
+  .temp {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 784px) {
+  .main-custom-content {
+    flex-direction: column-reverse;
+  }
+
+  .weather-type-info {
+    margin-left: 3rem;
+    margin-top: 3rem;
+  }
+
+  .info-2-wrapper {
+    align-items: center;
+  }
+  .main-info {
+    border-bottom-left-radius: 0;
+    border-radius: 4.5rem 4.5rem 0 0;
+  }
+  .side-info {
+    border-radius: 0 0 4.5rem 4.5rem;
+  }
+  .info-1-wrapper {
+    width: 60vw;
+  }
+  .info-2-wrapper {
+    margin-top: 1rem;
+  }
+
+  .info-1 {
+    margin-top: 2rem;
+    border: none;
+    padding: 0.6rem 0.6rem 0.6rem 0.3rem;
+  }
+
+  .info-3-wrapper i {
+    font-size: 1rem;
+  }
+
+  .fa-droplet {
+    top: -5px;
+    font-size: 0.4rem;
+  }
+
+  .error-message1,
+  .error-message2 {
+    font-size: 0.5rem;
+  }
+
+  .info-2 {
+    font-size: 1rem;
+  }
+
+  .info-3 {
+    font-size: 1rem;
+  }
+
+  .info-4 {
+    font-size: 1rem;
+  }
+
+  .city {
+    font-size: 2.2rem;
+  }
+
+  .weather-type {
+    font-size: 1.2rem;
+  }
+
+  .weather-desc {
+    font-size: 1rem;
+    left: 0;
+  }
+
+  .temp {
+    font-size: 1rem;
+  }
+}
+
 /* <div class="custom-content">
       <div class="custom-content-image"></div>
       <div class="custom-content-overlay"></div>
