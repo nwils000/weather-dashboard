@@ -29,6 +29,13 @@ async function getCityLatAndLong(zipCode) {
   }
 }
 
+const searchParams = new URLSearchParams(window.location.search);
+if (searchParams.has('zipcode')) {
+  getCityLatAndLong(searchParams.get('zipcode'))
+} else {
+  getCityLatAndLong('40515');
+}
+
 // TODO: instead of listening for click of button, listen for submit of the form element
 document.querySelector('.info-1-submit').addEventListener('click', () => {
   let zipCode = document.querySelector('.info-1').value;
@@ -36,7 +43,6 @@ document.querySelector('.info-1-submit').addEventListener('click', () => {
   getCityLatAndLong(zipCode);
 });
 
-getCityLatAndLong('40515');
 
 async function getLocationData() {
   try {
