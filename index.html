@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <button class="custom-mode-button">Custom mode</button>
+    <button type="button" class="custom-mode-button">Custom mode</button>
     <div class="content-wrapper">
       <h1>Weather App</h1>
       <p class="error-message1"></p>
@@ -41,13 +41,21 @@
       <div class="custom-content-image"></div>
       <div class="custom-content-overlay"></div>
       <div class="custom-content-wrapper">
-        <button class="wireframe-mode-button">Custom mode</button>
+        <button type="button" class="wireframe-mode-button">Custom mode</button>
         <div class="main-custom-content">
           <div class="side-info">
             <div class="info-1-wrapper">
-              <i class="fa-solid fa-temperature-three-quarters"></i>
-              <input class="info-1" type="text" placeholder="40507" />
-              <button class="info-1-submit">Submit</button>
+              <!-- Form element makes this more semantic for anyone using assistive technology -->
+              <form action="" method="get">
+                <!-- Always a good practice to label inputs -->
+                <label for="zipcode">
+                  Zip Code
+                  <i class="fa-solid fa-temperature-three-quarters"></i>
+                </label>
+                <input class="info-1" type="text" name="zipcode" placeholder="40507" />
+                <!-- Button types are important, type submit lets you submit the form w/o need of JS -->
+                <button type="submit" class="info-1-submit">Submit</button>
+              </form>
             </div>
             <p class="error-message2"></p>
             <div class="info-2-wrapper">
@@ -71,19 +79,6 @@
               <div class="temp"></div>
               <div class="temp-summary"></div>
             </div>
-
-            <!-- <div class="weekly-temps">
-              <div>Weekly Temps</div>
-              <div class="weekly-temps-flex">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
