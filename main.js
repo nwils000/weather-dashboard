@@ -29,6 +29,7 @@ async function getCityLatAndLong(zipCode) {
   }
 }
 
+// TODO: instead of listening for click of button, listen for submit of the form element
 document.querySelector('.info-1-submit').addEventListener('click', () => {
   let zipCode = document.querySelector('.info-1').value;
 
@@ -44,8 +45,9 @@ async function getLocationData() {
     );
     result = res.data;
     console.log(result);
-    displayInformation();
-    displayCustomInformation();
+    // Easier to debug the program when data flows more directly
+    displayInformation(res.data);
+    displayCustomInformation(res.data);
   } catch (err) {
     console.log(`error ${err}`);
     document.querySelector('.error-message2').style.display = 'block';
@@ -55,39 +57,23 @@ async function getLocationData() {
   }
 }
 
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   } else {
-//     console.log('Geolocation is not supported by this browser.');
-//   }
-// }
-
-// function showPosition(position) {
-//   longitude = position.coords.longitude;
-//   latitude = position.coords.latitude;
-//   getLocationData();
-// }
-
-// getLocation();
-
 // ADDING LOCATION DATA TO DOM
-function displayInformation() {
+function displayInformation({ name, main, weather }) {
   let city = document.querySelector('.city-body');
-  city.textContent = result.name;
+  city.textContent = name;
   let tempK = document.querySelector('#temp-k');
-  tempK.textContent = `${result.main.temp}K`;
+  tempK.textContent = `${main.temp}K`;
   let tempF = document.querySelector('#temp-f');
-  tempF.textContent = convertKtoF(result.main.temp);
+  tempF.textContent = convertKtoF(main.temp);
   let tempC = document.querySelector('#temp-c');
-  tempC.textContent = convertKtoC(result.main.temp);
+  tempC.textContent = convertKtoC(main.temp);
   let condition = document.querySelector('.condition-body');
-  condition.textContent = result.weather[0].main;
+  condition.textContent = weather[0].main;
   let otherInfo = document.querySelector('.other-info-body');
   let otherInfoImage = document.createElement('img');
   otherInfoImage.setAttribute(
     'src',
-    `https://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
   );
   otherInfo.textContent = '';
   otherInfo.appendChild(otherInfoImage);
@@ -120,10 +106,10 @@ wireframeModeButton.addEventListener('click', () => {
   document.querySelector('.custom-content').style.display = 'none';
 });
 
-function displayCustomInformation() {
-  document.querySelector('.city').textContent = result.name;
-  document.querySelector('.info-2').textContent = result.main.humidity;
-  document.querySelector('.info-3').textContent = `${result.wind.speed} mph`;
+function displayCustomInformation({ name, main, wind, weather }) {
+  document.querySelector('.city').textContent = name;
+  document.querySelector('.info-2').textContent = main.humidity;
+  document.querySelector('.info-3').textContent = `${wind.speed} mph`;
   function degreesToCompass(degrees) {
     if (degrees >= 348.75 || degrees < 11.25) return 'N';
     else if (degrees >= 11.25 && degrees < 33.75) return 'NNE';
@@ -142,124 +128,51 @@ function displayCustomInformation() {
     else if (degrees >= 303.75 && degrees < 326.25) return 'NW';
     else if (degrees >= 326.25 && degrees < 348.75) return 'NNW';
   }
-  let windDegrees = result.wind.deg;
+  let windDegrees = wind.deg;
   let compassDirection = degreesToCompass(windDegrees);
   document.querySelector('.info-4').textContent = compassDirection;
-  document.querySelector('.weather-type').textContent = result.weather[0].main;
+  document.querySelector('.weather-type').textContent = weather[0].main;
   document.querySelector('.weather-desc').textContent =
-    result.weather[0].description;
-  document.querySelector('.temp').textContent = convertKtoF(result.main.temp);
+    weather[0].description;
+  document.querySelector('.temp').textContent = convertKtoF(main.temp);
   document.querySelector(
     '.main-custom-content'
-  ).style.background = `url(${getWeatherImgSrc()})`;
+  ).style.background = `url(${getWeatherImgSrc(weather[0].main)})`;
   document.querySelector('.main-custom-content').style.backgroundSize = 'cover';
   document.querySelector(
     '.custom-content-image'
-  ).style.background = `url(${getWeatherImgSrc()})`;
+  ).style.background = `url(${getWeatherImgSrc(weather[0].main)})`;
   document.querySelector('.custom-content-image').style.backgroundSize =
     'cover';
-  function getWeatherImgSrc() {
-    switch (result.weather[0].main) {
+
+  function getWeatherImgSrc(weatherString) {
+    // use switch case fall through behavior
+    switch (weatherString) {
       case 'Clouds':
-        return cloud;
-        break;
-      case 'Clear':
-        return sun;
-        break;
-      case 'Tornado':
-        return storm;
-        break;
       case 'Squall':
-        return cloud;
-        break;
       case 'Ash':
-        return cloud;
-        break;
       case 'Dust':
-        return cloud;
-        break;
       case 'Sand':
-        return cloud;
-        break;
       case 'Fog':
-        return cloud;
-        break;
       case 'Dust':
-        return cloud;
-        break;
       case 'Haze':
-        return cloud;
-        break;
       case 'Smoke':
-        return cloud;
-        break;
       case 'Mist':
-        return cloud;
-        break;
       case 'Snow':
         return cloud;
-        break;
       case 'Rain':
-        return rain;
-        break;
       case 'Drizzle':
         return rain;
-        break;
+      case 'Clear':
+        return sun;
+      case 'Tornado':
       case 'Thunderstorm':
         return storm;
-        break;
+      default:
+        return ''
     }
   }
 }
-
-// .main-custom-content {
-//   width: 85vw;
-//   height: 80vh;
-//   margin: auto;
-//   border-radius: 4.5rem;
-//   box-shadow: 4px 4px 25px 0px rgba(0, 0, 0, 0.51);
-//   background: url(../images/cloud.jpg);
-//   background-size: cover;
-//   opacity: 1;
-//   display: flex;
-//   position: relative;
-//   top: 10vh;
-//   color: white;
-// }
-
-/* <div class="custom-content">
-      <div class="custom-content-image"></div>
-      <div class="custom-content-overlay"></div>
-      <div class="custom-content-wrapper">
-        <button class="wireframe-mode-button">Custom mode</button>
-        <div class="main-custom-content">
-          <div class="side-info">
-            <div class="info-1"></div>
-            <div class="info-2"></div>
-            <div class="info-3"></div>
-            <div class="info-4"></div>
-          </div>
-          <div class="main-info">
-            <div>
-              <div class="weather-type"></div>
-              <div class="weather-desc"></div>
-            </div>
-            <div class="temp"></div>
-            <div class="temp summary"></div>
-            <div class="weekly-temps">
-              <div>Weekly Temps</div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> */
 
 let bodyAnchor = document.getElementById('body');
 elementCreator('main', bodyAnchor, '1');
