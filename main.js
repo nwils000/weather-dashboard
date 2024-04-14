@@ -184,6 +184,6 @@ elementCreator('div', '3', 'myDiv');
 function elementCreator(child, parentId, id) {
   let element = document.createElement(child);
   element.setAttribute('id', id);
-  parentELement = document.getElementById(parentId);
-  parentElement.appendChild(element);
+  let parentElement = document.getElementById(parentId);
+  if(parentElement) parentElement.appendChild(element);
 }
